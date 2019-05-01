@@ -1,9 +1,3 @@
-<!--
-Author: WebThemez
-Author URL: http://webthemez.com
-License: Creative Commons Attribution 3.0 Unported
-License URL: http://creativecommons.org/licenses/by/3.0/
--->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,50 +5,70 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="description" content="free-educational-responsive-web-template-webEdu">
 	<meta name="author" content="webThemez.com">
-	<title>ACS E-Learning</title>
-
+	<title>NU Learning Management System</title>
 	<link rel="stylesheet" media="screen" href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,700">
-	<link rel="stylesheet" href="../css/bootstrap.min.css">
-	<link rel="stylesheet" href="../css/font-awesome.min.css"> 
-	<link rel="stylesheet" href="../css/bootstrap-theme.css" media="screen"> 
 	<link rel="stylesheet" href="../css/style.css">
     <link rel='stylesheet' id='camera-css'  href='../css/camera.css' type='text/css' media='all'> 
-     <link rel="icon" type="image/png"  href="../images/favicon.png">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+  	  	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+	   	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/4.0.1/bootstrap3-typeahead.min.js"></script>  
+      	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+      	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+      	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>    	
+    	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/4.0.2/bootstrap3-typeahead.js"></script>
+ 		<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/4.0.2/bootstrap3-typeahead.min.js"></script>
+ 		<style type="text/css">
+   	.navbar-nav > li{
+  padding-left:30px;
+  padding-right:30px;
+  color: white;
+}
+.footer2{
+	position: fixed;
+	bottom: 0;
+	width: 100%
+	}
+   </style>
 
 </head>
 <body>
-	<div class="navbar navbar-inverse">
-		<div class="container">
-			<div class="navbar-header">
-				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
-				<a class="navbar-brand" href="index.php">
-					<img src="../images/logo.png" alt="Techro HTML5 template"></a>
-			</div>
-			<div class="navbar-collapse collapse">
-				<ul class="nav navbar-nav pull-right mainNav">
-					<li ><a href="../index.php">Home</a></li>
-					<li ><a href="about.php">About</a></li>
-					<li><a href="courses.php">Courses</a></li>
-					<li class="dropdown">
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown">Login <b class="caret"></b></a>
-						<ul class="dropdown-menu">
-							<li><a href="../admin/index.php">Administrator</a></li>
-							<li><a href="../teacher/index.php">Teacher</a></li>
-							<li><a href="../student/index.php">Student</a></li>
-						</ul>
-					</li>
-					<li class="active"><a href="contact.php">Contact</a></li>
+	<nav class="navbar navbar-expand-lg navbar-light fixed-top bg-dark" style="height: 70px">
+		  <a class="navbar-brand" href="../index.php">
+					<img src="../images/brand.png" width="250px"  alt="NIIT University"></a>
+		  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" style="background-color: #FF69B4;">
+		    <span class="navbar-toggler-icon"></span>
+		  </button>
 
-				</ul>
-			</div>
-		</div>
-	</div>
+		  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+		    <ul class="navbar-nav mr-auto">
+		       <li><a class="nav-item active text-light" href="../index.php">HOME</a></li>
+		       <li><a class="nav-item text-light" href="about.php">ABOUT</a></li>
+				<li><a class="nav-item text-light" href="courses.php">COURSES</a></li>
+				<li><a class="nav-item text-light" href="#">CONTACT</a></li>
+		    </ul>
+		    <ul class="nav navbar-nav navbar-right">
+		      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          LOGIN
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="../admin/index.php">Admin</a>
+          <a class="dropdown-item" href="../teacher/index.php">Teacher</a>
+          <a class="dropdown-item" href="../student/index.php">Student</a>
+        </div>
+      </li>
+      
+
+    		</ul>
+
+		  </div>
+		</nav>
 
 	
-		<header id="head" class="secondary">
+		<header id="head" class="secondary" style="padding-top: 80px">
             <div class="container">
                     <h1>Contact Us</h1>
-                    <p>Random Visitors of the website can send message to the admin!</p>
+                    
                 </div>
     </header>
 
@@ -70,46 +84,48 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 						<form class="form-light mt-20" role="form" method="POST" action="process-contact.php">
 							<div class="form-group">
 								<label>Name</label>
-								<input type="text" class="form-control" name="name" placeholder="Your name">
+								<input type="text" class="form-control" name="name" required="required" placeholder="Your name">
 							</div>
 							<div class="row">
 								<div class="col-md-6">
 									<div class="form-group">
 										<label>Email</label>
-										<input type="email" class="form-control" name="email" placeholder="Email address">
+										<input type="email" class="form-control" required="required" name="email" placeholder="Email address">
 									</div>
 								</div>
 								<div class="col-md-6">
 									<div class="form-group">
 										<label>Phone</label>
-										<input type="text" class="form-control" name="phone" placeholder="Phone number">
+										<input type="text" class="form-control" name="phone" placeholder="Phone number" required="required" >
 									</div>
 								</div>
 							</div>
 							<div class="form-group">
 								<label>Subject</label>
-								<input type="text" class="form-control" name="subject" placeholder="Subject">
+								<input type="text" class="form-control" name="subject" placeholder="Subject" required="required">
 							</div>
 							<div class="form-group">
 								<label>Message</label>
-								<textarea class="form-control" id="message" name="message" placeholder="Write you message here..." style="height:100px;"></textarea>
+								<textarea class="form-control" id="message" name="message" placeholder="Write you message here..." style="height:100px;" required="required"></textarea>
 							</div>
-							<button type="submit" class="btn btn-two">Send message</button><p><br/></p>
+							<button type="submit" class="btn btn-success">Send message</button><p><br/></p>
 						</form>
 					</div>
 					<div class="col-md-4">
 						<div class="row">
-							<div class="col-md-6">
+							<div class="col">
+								<br><br>
 								<h3 class="section-title">Office Address</h3>
 								<div class="contact-info">
-									<h5>Address</h5>
-									<p>CSA-B/p>
+									<h5>University Campus</h5>
+									<p>NH 8, Delhi Jaipur Highway,
+Neemrana, Rajasthan – 301705</p>
 									
 									<h5>Email</h5>
-									<p>csit@gmail.com</p>
+									<p>admissions@niituniversity.in</p>
 									
 									<h5>Phone</h5>
-									<p>+09 123 1234 123</p>
+									<p>1800 103 5050</p>
 								</div>
 							</div> 
 						</div> 						
@@ -126,33 +142,32 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
 			<div class="clear"></div>
 		</div>
-		<div class="footer2">
-			<div class="container">
-				<div class="row">
+<footer class="footer2" >
+    <div class="container-fluid">
+      <div class="row" >
+      <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 text-center">
+          <div class="footer-contacts">
+            <div class="footer-contact text-white">
+              <i class="fa fa-phone-square fa-lg"></i> +91 838 409 0651
+            </div>
+            <div class="footer-contact text-center text-white"> 
+             <span> <i class="fa fa-envelope-square fa-lg"></i> chvishnuvardhan707@gmail.com</span>
+            </div>
+          </div>
+        </div>
+      <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 text-center">
+          <p class="text-white text-center">© 2019 Copyright: Vishnu Vardhan CH<br>
+           <a class="text-center text-white" href="#top">Go To Top <span><i class="fas fa-arrow-square-up fa-lg"></i></span></a>
+        </div>
+      <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 text-center">
+          <div class="text-white">Get in touch with me at: <br>
+            <a href="https://github.com/Chvishnuvardhan707"> <span  style="color: white"><i aria-hidden="true" class="fab fa-github-square fa-2x"></i></span></a>   <a href="https://www.linkedin.com/in/chinthalapudi-vishnuvardhan-7b2b29149/">  <span style="color: white"><i class="fab fa-linkedin fa-2x"></i></i></span></a>  <a href="https://www.facebook.com/profile.php?id=100010321689058"><span style="color: white"><i class="fab fa-facebook-square fa-2x"></i></span></a>
 
-					<div class="col-md-6 panel">
-						<div class="panel-body">
-							<p class="simplenav">
-								<a href="../index.php">Home</a> | 
-								<a href="about.php">About</a> |
-								<a href="courses.php">Courses</a> |
-								<a href="contact.php">Contact</a>
-							</p>
-						</div>
-					</div>
-
-					<div class="col-md-6 panel">
-						<div class="panel-body">
-							<p class="text-right">
-								Copyright &copy; 2019.
-							</p>
-						</div>
-					</div>
-
-				</div>
-			</div>
-		</div>
-	</footer>
+          </div>
+        </div>
+       </div>
+    </div>
+  </footer>
 	<script src="../js/modernizr-latest.js"></script> 
 	<script type='text/javascript' src='../js/jquery.min.js'></script>
     <script type='text/javascript' src='../js/fancybox/jquery.fancybox.pack.js'></script>
