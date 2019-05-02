@@ -53,7 +53,7 @@
           LOGIN
         </a>
         <div class="dropdown-menu bg-dark" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item bg-dark" href="../admin/index.php">Admin</a>
+          <a class="dropdown-item" href="../admin/index.php">Admin</a>
           <a class="dropdown-item" href="../teacher/index.php">Teacher</a>
           <a class="dropdown-item" href="../student/index.php">Student</a>
         </div>

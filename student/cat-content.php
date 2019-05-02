@@ -23,18 +23,12 @@ $username=$_SESSION['username'];
 	<link rel="stylesheet" href="../css/bootstrap-theme.css" media="screen"> 
 	<link rel="stylesheet" href="../css/style.css">
     <link rel='stylesheet' id='camera-css'  href='../css/camera.css' type='text/css' media='all'> 
-	<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-	<!--[if lt IE 9]>
-	<script src="../js/html5shiv.js"></script>
-	<script src="../js/respond.min.js"></script>
-	<![endif]-->
+
 </head>
 <body>
-	<!-- Fixed navbar -->
 	<div class="navbar navbar-inverse">
 		<div class="container">
 			<div class="navbar-header">
-				<!-- Button for smallest screens -->
 				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
 				<a class="navbar-brand" href="home.php">
 					<img src="../images/logo.png" alt="Techro HTML5 template"></a>
@@ -54,12 +48,8 @@ $username=$_SESSION['username'];
 
 				</ul>
 			</div>
-			<!--/.nav-collapse -->
 		</div>
 	</div>
-	<!-- /.navbar -->
-	<!-- /.navbar -->
-
 	<header id="head" class="secondary">
             <div class="container">
                     <h1>Topics</h1>

@@ -14,9 +14,9 @@ extract($_POST);
 
 	$password = str_replace("'","`",$password); 
 	//$password = mysql_real_escape_string($password);
-	//$password = md5($password);
+	$password = md5($password);
 
-$sql = $pdo->$prepare("INSERT INTO `tbl_user`(`fname`, `mname`, `lname`, `dob`, `gender`, `course`, `yrlvl`, `username`, `password`) VALUES  ('$fname','$mname','$lname','$dob','$gender','$course','$yrlvl','$username','$password')");
+$sql = $pdo->prepare("insert INTO `tbl_user`(`fname`, `mname`, `lname`, `dob`, `gender`, `username`, `password`) VALUES  ('$fname','$mname','$lname','$dob','$gender','$username','$password')");
 $sql->execute();
  echo '<script language="javascript">';
  echo 'alert("Successfully Registered")';

@@ -7,135 +7,94 @@
     header("Location:index.php");
   }
 $adm_user=$_SESSION['adm_user'];
-?>
-<!DOCTYPE html>
+?><!DOCTYPE html>
 <html class="no-js">
     
     <head>
         <title>Admin Home Page</title>
-        <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
-        <link href="../bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet" media="screen">
+       
         <link href="../vendors/easypiechart/jquery.easy-pie-chart.css" rel="stylesheet" media="screen">
         <link href="../assets/styles.css" rel="stylesheet" media="screen">
-         <link rel="icon" type="image/png"  href="../images/favicon.png">
         <script src="../vendors/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/4.0.1/bootstrap3-typeahead.min.js"></script>  
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/4.0.2/bootstrap3-typeahead.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/4.0.2/bootstrap3-typeahead.min.js"></script>
     </head>
     
     <body>
-        <div class="navbar navbar-fixed-top">
-            <div class="navbar-inner">
-                <div class="container-fluid">
-                    <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"> <span class="icon-bar"></span>
-                     <span class="icon-bar"></span>
-                     <span class="icon-bar"></span>
-                    </a>
-                    <a class="brand" href="#">Admin Panel</a>
-                    <div class="nav-collapse collapse">
-                        <ul class="nav pull-right">
-                            <li class="dropdown">
-                                <a href="#" role="button" class="dropdown-toggle" data-toggle="dropdown"> <i class="icon-user"></i><?php echo $adm_user;?> <i class="caret"></i>
+<nav class="navbar navbar-expand-lg navbar-light fixed-top bg-dark">
+		  <a class="navbar-brand" href="index.php">
+					<img src="../images/brand.png" width="250px"  alt="NIIT University" style="padding-top: 0px"></a>
+		  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" style="background-color: #FF69B4;">
+		    <span class="navbar-toggler-icon"></span>
+		  </button>
 
-                                </a>
-                                <ul class="dropdown-menu">
-                                    <li>
-                                        <a tabindex="-1" href="account/index.php">Profile</a>
-                                    </li>
-                                    <li class="divider"></li>
-                                    <li>
-                                        <a tabindex="-1" href="logout.php">Logout</a>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                     
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="container-fluid">
-            <div class="row-fluid">
-                <div class="span3" id="sidebar">
-                    <ul class="nav nav-list bs-docs-sidenav nav-collapse collapse">
-                        <li class="active">
-                            <a href="home.php"><i class="icon-chevron-right"></i> Dashboard</a>
-                        </li>
-                       
-                        <li>
+		  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+		    <ul class="navbar-nav mr-auto">
+		       <li >
                         <?php
                                     include '../functions/connect.php';
-                                    $percent=$pdo->query("SELECT count(*) from tbl_teacher")->fetchColumn();
-                                    
-                                    
+                                    $percent=$pdo->query("SELECT count(*) from tbl_teacher")->fetchColumn();   
                                     ?>
-                            <a href="teacher/index.php"><span class="badge badge-success pull-right"><?php echo $percent;?></span> Teachers</a>
+                            <a class="nav-item text-light" href="teacher/index.php"><span class="badge badge-success float-right"><?php echo $percent;?></span> Teachers</a>
                         </li>
                         <li>
                         <?php
                                     include '../functions/connect.php';
-
                                     $percent=$pdo->query("SELECT count(*) from tbl_user")->fetchColumn();
                                     ?>
-                            <a href="students/index.php"><span class="badge badge-success pull-right"><?php echo $percent;?></span> Students</a>
+                            <a class="nav-item text-light" href="students/index.php"><span class="badge badge-success float-right"><?php echo $percent;?></span> Students</a>
                         </li>
-
                         <li>
                           <?php
-                                    include '../functions/connect.php';
-
-                                    $percent=$pdo->query("SELECT count(*) from tbl_category")->fetchColumn();                                
-                                    ?>
-                            <a href="category/index.php"><span class="badge badge-info pull-right"><?php echo $percent;?></span> Categories</a>
+                          include '../functions/connect.php';
+                          $percent=$pdo->query("SELECT count(*) from tbl_category")->fetchColumn();
+                          ?>
+                            <a class="nav-item text-light" href="category/index.php"><span class="badge badge-info float-right"><?php echo $percent;?></span> Categories</a>
                         </li>
                         <li>
                         <?php
                                     include '../functions/connect.php';
                                     $percent=$pdo->query("SELECT count(*) as total from tbl_contact")->fetchColumn();
                                     ?>
-                            <a href="message/index.php"><span class="badge badge-info pull-right"><?php echo $percent;?></span> Messages</a>
+                            <a class="nav-item text-light" href="message/index.php"><span class="badge badge-info float-right"><?php echo $percent;?></span> Messages</a>
                         </li>
-                     
-                    </ul>
-                </div>
-                
-                <!--/span-->
-                <div class="span9" id="content">
-                    <div class="row-fluid">
-                 
-                        	<div class="navbar">
-                            	<div class="navbar-inner">
-	                                <ul class="breadcrumb">
-	                                    <i class="icon-chevron-left hide-sidebar"><a href='#' title="Hide Sidebar" rel='tooltip'>&nbsp;</a></i>
-	                                    <i class="icon-chevron-right show-sidebar" style="display:none;"><a href='#' title="Show Sidebar" rel='tooltip'>&nbsp;</a></i>
-	                                    <li>
-	                                        <a href="#">Dashboard</a> <span class="divider">/</span>	
-	                                    </li>
-	                                  
-	                                </ul>
-                            	</div>
-                        	</div>
-                    	</div>
-                    <div class="row-fluid">
-                        <!-- block -->
-                        <div class="block">
-                            <div class="navbar navbar-inner block-header">
-                                <div class="muted pull-left">Statistics</div>
-                                <div class="pull-right"><span class="badge badge-warning">View More</span>
-
-                                </div>
-                            </div>
-                            <div class="block-content collapse in">
+		       
+		    </ul>
+		    <ul class="nav navbar-nav navbar-right">
+		      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="icon-user"></i><?php echo $adm_user;?> <i class="caret"></i></a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="account/index.php">Profile</a>
+          <a class="dropdown-item" href="logout.php">Logout</a>
+        </div>
+      </li>
+    		</ul>
+		  </div>
+		</nav>
+		<div class="container" style="padding-top: 50px">
+			<div class="row">
+				<div class="col col-lg-12 col-md-12 col-sm-12">
+					<div class="card">
+						<div class="card-header text-center">Statistics</div>
+						<div class="card-body">
+							<div class="row">
                              <?php
                                     include '../functions/connect.php';
 
                                     $percent=$pdo->query("SELECT count(*) as total from tbl_teacher")->fetchColumn();
                                     ?>
-                                <div class="span3">
+                                <div class="col col-lg-3 col-md-3 col-sm-6">
                                     <div class="chart" data-percent="73"><?php echo $percent;?></div>
                                     <div class="chart-bottom-heading"><span class="label label-info">Teachers</span>
 
                                     </div>
                                 </div>
-                                <div class="span3">
+                                <div class="col col-lg-3 col-md-3 col-sm-6">
                                  <?php
                                     include '../functions/connect.php';
 
@@ -146,7 +105,7 @@ $adm_user=$_SESSION['adm_user'];
 
                                     </div>
                                 </div>
-                                <div class="span3">
+                                <div class="col col-lg-3 col-md-3 col-sm-6">
                                  <?php
                                     include '../functions/connect.php';
 
@@ -157,7 +116,7 @@ $adm_user=$_SESSION['adm_user'];
 
                                     </div>
                                 </div>
-                                <div class="span3">
+                                <div class="col col-lg-3 col-md-3 col-sm-6">
                                  <?php
                                     include '../functions/connect.php';
 
@@ -168,26 +127,24 @@ $adm_user=$_SESSION['adm_user'];
 
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-                        <!-- /block -->
-                    </div>
-                    <div class="row-fluid">
-                        <div class="span6">
-                            <!-- block -->
-                            <div class="block">
-                                <div class="navbar navbar-inner block-header">
-                                 <?php
+                                </div>
+						</div>
+						<div class="card-footer"></div>
+					</div>
+                    <br>
+					<div class="card">
+						<div class="card-header text-center"><?php
                                     include '../functions/connect.php';
 
                                     $result=$pdo->query("SELECT count(*) as total from tbl_user")->fetchColumn();
                                    ?>
-                                    <div class="muted pull-left">Users</div>
-                                    <div class="pull-right"><span class="badge badge-info"><?php echo $result;?></span>
+                                    <div class="muted">Users<span class="badge badge-info"><?php echo $result;?></span>
 
                                     </div>
-                                </div>
-                                <div class="block-content collapse in">
+                        </div>
+						<div class="card-body">
+                                 
+                                <div class="block-content">
                                     <table class="table table-striped">
                                       <thead>
                                         <tr>
@@ -218,7 +175,7 @@ $adm_user=$_SESSION['adm_user'];
                                                 Action
                                             <span class="caret"></span>
                                             </button>
-                                            <ul class="dropdown-menu pull-right" role="menu">
+                                            <ul class="dropdown-menu float-right" role="menu">
                                             <li><a href="students/index.php"><span class="glyphicon glyphicon-edit"></span> View</a></li>
                                            
                                             </ul>
@@ -237,25 +194,22 @@ $adm_user=$_SESSION['adm_user'];
                                     </tbody>
                                     </table>
                                 </div>
-                            </div>
-                            <!-- /block -->
-                        </div>
-                        <div class="span6">
-                            <!-- block -->
-                            <div class="block">
-                              <?php
+						</div>
+						<div class="card-footer"></div>
+					</div><br>
+					<div class="card">
+						<div class="card-header text-center">
+							<?php
                                     include '../functions/connect.php';
 
                                     $sql=$pdo->query("SELECT count(*) as total from tbl_teacher")->fetchColumn();
                                    ?>
-                                <div class="navbar navbar-inner block-header">
-                                    <div class="muted pull-left">Teachers</div>
-                                    <div class="pull-right"><span class="badge badge-info"> <?php echo $sql;?></span>
+                                    <div class="muted">Teachers<span class="badge badge-info"> <?php echo $sql;?></span>
 
                                     </div>
-                                </div>
-                                <div class="block-content collapse in">
-                                    <table class="table table-striped">
+						</div>
+						<div class="card-body">
+							<table class="table table-striped">
                                         <thead>
                                         <tr>
                                            
@@ -303,28 +257,20 @@ $adm_user=$_SESSION['adm_user'];
                                         
                                     </tbody>
                                     </table>
-                                </div>
-                            </div>
-                            <!-- /block -->
-                        </div>
-                    </div>
-                    <div class="row-fluid">
-                        <div class="span6">
-                            <!-- block -->
-                            <div class="block">
-                             <?php
+						</div>
+						<div class="card-footer"></div>
+					</div><br>
+					<div class="card">
+						<div class="card-header text-center"> <?php
                                     include '../functions/connect.php';
 
                                     $result=$pdo->query("SELECT count(*) as total from tbl_teacher")->fetchColumn();
                                    ?>
-                                <div class="navbar navbar-inner block-header">
-                                    <div class="muted pull-left">Categories</div>
-                                    <div class="pull-right"><span class="badge badge-info"><?php echo $result;?></span>
-
+                                    <div class="muted">Categories<span class="badge badge-info"><?php echo $result;?></span>
                                     </div>
                                 </div>
-                                <div class="block-content collapse in">
-                                    <table class="table table-striped">
+						<div class="card-body">
+							<table class="table table-striped">
                                        <thead>
                                         <tr>
                                            
@@ -371,26 +317,22 @@ $adm_user=$_SESSION['adm_user'];
                                         
                                     </tbody>
                                     </table>
-                                </div>
-                            </div>
-                            <!-- /block -->
-                        </div>
-                        <div class="span6">
-                            <!-- block -->
-                            <div class="block">
-                                <div class="navbar navbar-inner block-header">
-                                  <?php
+						</div>
+						<div class="card-footer"></div>
+					</div><br>
+					<div class="card">
+						<div class="card-header text-center">
+							<?php
                                     include '../functions/connect.php';
 
                                     $result=$pdo->query("SELECT count(*) as total from tbl_contact")->fetchColumn();
                                     ?>
-                                    <div class="muted pull-left">Messages</div>
-                                    <div class="pull-right"><span class="badge badge-info"><?php echo $result;?></span>
+                                    <div class="muted">Messages<span class="badge badge-info"><?php echo $result;?></span>
 
                                     </div>
-                                </div>
-                                <div class="block-content collapse in">
-                                    <table class="table table-striped">
+						</div>
+						<div class="card-body">
+							<table class="table table-striped">
                                        <thead>
                                         <tr>
                                            
@@ -438,17 +380,15 @@ $adm_user=$_SESSION['adm_user'];
                                         
                                     </tbody>
                                     </table>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                   
-                </div>
-            </div>
+						</div>
+						<div class="card-footer"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
             <hr>
-            <footer>
-                <p>&copy; 2019</p>
-            </footer>
         </div>
         <script src="../vendors/jquery-1.9.1.min.js"></script>
         <script src="../bootstrap/js/bootstrap.min.js"></script>
