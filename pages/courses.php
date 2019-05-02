@@ -4,8 +4,6 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="description" content="free-educational-responsive-web-template-webEdu">
-	<meta name="author" content="webThemez.com">
 	<title>NU Learning Management System</title>
 	<link rel="stylesheet" media="screen" href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,700">
 	<link rel="stylesheet" href="../css/style.css">
@@ -68,43 +66,32 @@
             <div class="container">
                     <h1>Categories</h1>
             </div>
-    </header>
-
-
-<div class="container">
-
-
-</div>
-	<div id="courses">
-		<section class="container">
-			<h3>Different Categories</h3>
-			<div class="row">
-				<div class="col-md-4">
-					<div class="featured-box"> 
-					 			<?php
-                                        
-                                        include "../functions/connect.php";
-                                       $sql=$pdo->prepare( "SELECT * FROM `tbl_category` ");
-                                       $sql->execute();
-                                       $result =$sql->fetchall(); foreach ($result as $row) {
-                                          $id = $row['cat_Id'];
-                                            $name = $row['name'];
-                                            $description = $row['description'];
-                                            ?>
-						<div class="text">
-							<h3><?php echo $name;?></h3>
-							<?php echo $description;?>
-							</div>
-							    <?php }?>
-					</div>
-				</div>
-				
-			</div>
-
-		</section>
-	</div>
- 			<div class="clear"></div>
-		</div>
+    </header><br><br>
+    <div class="container">
+      <div class="row">
+        <?php
+        include "../functions/connect.php";
+        $sql=$pdo->prepare( "SELECT * FROM `tbl_category` ");
+        $sql->execute();
+        $result =$sql->fetchall(); foreach ($result as $row) {?>
+        <div class="col col-lg-4 col-md-4 col-sm-6" style="padding-top: 50px;"> 
+          <div class="card" style="background-color: #f0f1f3;">
+            <img class="card-img-top " src="../course_img/<?php echo $row['image'];?>" style="padding-top: 10px;height: 150px; width: 150px; margin-left: 25%;margin-right: 25%" alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title"><?php echo $row['name'];?></h5>
+              <p class="card-text"><?php echo $row['side_heading'];?></p>
+            </div>
+            <hr>
+            <div class="card-body">
+              <h6 class="card-link small text-muted"> <b>User Rating</b><?php echo " : ";?>  <i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><?php echo " ";?> 0/5 </h6>
+              
+            </div>
+          </div><br>
+        </div><br>
+        <?php }?>
+        
+      </div><br><br>
+    </div>
 	
 	<script src="../js/modernizr-latest.js"></script> 
 	<script type='text/javascript' src='../js/jquery.min.js'></script>
@@ -135,7 +122,8 @@
 		});
       
 	</script>
-	<footer class="footer2" >
+	<br><br>
+	<footer class="footer2" style="margin-top: 15px">
     <div class="container-fluid">
       <div class="row" >
       <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 text-center">
