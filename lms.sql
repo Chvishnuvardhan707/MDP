@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: May 02, 2019 at 08:29 AM
+-- Generation Time: May 02, 2019 at 08:55 AM
 -- Server version: 5.7.24
 -- PHP Version: 7.2.14
 
@@ -349,8 +349,6 @@ CREATE TABLE IF NOT EXISTS `tbl_user` (
   `lname` varchar(255) DEFAULT NULL,
   `dob` date DEFAULT NULL,
   `gender` varchar(255) DEFAULT NULL,
-  `course` varchar(255) DEFAULT NULL,
-  `yrlvl` varchar(255) DEFAULT NULL,
   `username` varchar(255) DEFAULT NULL,
   `password` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`user_Id`)
@@ -360,11 +358,11 @@ CREATE TABLE IF NOT EXISTS `tbl_user` (
 -- Dumping data for table `tbl_user`
 --
 
-INSERT INTO `tbl_user` (`user_Id`, `fname`, `mname`, `lname`, `dob`, `gender`, `course`, `yrlvl`, `username`, `password`) VALUES
-(1, 'samples', 'sample', 'sample', '2015-05-20', 'Male', 'BSIT', '4', 'sample', '5e8ff9bf55ba3508199d22e984129be6'),
-(2, 'test', 'test', 'test', '2015-05-08', 'Female', 'BSIT', '1', 'test', '098f6bcd4621d373cade4e832627b4f6'),
-(3, 'aaa', 'aaa', 'aaa', '2015-05-07', 'Male', 'BSCS', '4', 'aaa', '47bce5c74f589f4867dbd57e9ca9f808'),
-(4, 'lorem', 'lorem', 'lorem', '2015-04-30', 'Male', 'BSIT', '2', 'lorem', 'd2e16e6ef52a45b7468f1da56bba1953');
+INSERT INTO `tbl_user` (`user_Id`, `fname`, `mname`, `lname`, `dob`, `gender`, `username`, `password`) VALUES
+(1, 'samples', 'sample', 'sample', '2015-05-20', 'Male', 'sample', '5e8ff9bf55ba3508199d22e984129be6'),
+(2, 'test', 'test', 'test', '2015-05-08', 'Female', 'test', '098f6bcd4621d373cade4e832627b4f6'),
+(3, 'aaa', 'aaa', 'aaa', '2015-05-07', 'Male', 'aaa', '47bce5c74f589f4867dbd57e9ca9f808'),
+(4, 'lorem', 'lorem', 'lorem', '2015-04-30', 'Male', 'lorem', 'd2e16e6ef52a45b7468f1da56bba1953');
 
 --
 -- Constraints for dumped tables
