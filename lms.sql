@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: May 02, 2019 at 08:55 AM
+-- Generation Time: May 03, 2019 at 05:04 AM
 -- Server version: 5.7.24
 -- PHP Version: 7.2.14
 
@@ -41,7 +41,7 @@ CREATE TABLE IF NOT EXISTS `tbl_admin` (
 --
 
 INSERT INTO `tbl_admin` (`adm_Id`, `adm_user`, `adm_pwd`) VALUES
-(1, 'admin', '21232f297a57a5a743894a0e4a801fc3');
+(1, 'admin', 'admin');
 
 -- --------------------------------------------------------
 
@@ -72,6 +72,7 @@ CREATE TABLE IF NOT EXISTS `tbl_category` (
   `image` varchar(255) DEFAULT NULL,
   `rating` float DEFAULT NULL,
   `side_heading` varchar(150) DEFAULT NULL,
+  `course_name` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`cat_Id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
 
@@ -79,13 +80,13 @@ CREATE TABLE IF NOT EXISTS `tbl_category` (
 -- Dumping data for table `tbl_category`
 --
 
-INSERT INTO `tbl_category` (`cat_Id`, `name`, `description`, `image`, `rating`, `side_heading`) VALUES
-(5, 'Web Design for Beginners : Learn HTML5 Programming', 'What you\'ll learn\r\nBy the end of the course you will be able to create full fledged HTML5 websites\r\nYou will be able to use features like Drag and Drop, Geo location and Web Storage to create immersible user experience.\r\nYou will have through understanding of both HTML and CSS', 'html5.png', 0, 'Vishnu'),
-(6, 'Web Design for Beginners : Learn CSS3', 'What you\'ll learn\r\nReal-world skills to build real-world websites: professional, beautiful and truly responsive websites\r\nA huge project that will teach you everything you need to know to get started with HTML5 and CSS3\r\nThe proven 7 real-world steps from complete scratch to a fully functional and optimized website', 'css.png', 0, 'Praneeth, Vishnu'),
-(7, 'Build a Responsive Real world website with Bootstrap4', 'Step by Step learn Bootstrap 4 with tutorial and by creating 10 interesting projects.\r\nCreate 10 amazing projects using Bootstrap 4\r\nLearn bootstrap classes and grid system.\r\nLearn CSS3 tricks and techniques.', 'bootstrap.png', 0, 'Praneeth'),
-(8, 'Modern Java Script for Beginners', 'What you\'ll learn\r\nModular learning sections & 10 real world projects with pure JavaScript\r\nMaster the DOM (document object model) WITHOUT jQuery\r\nAsynchronous programming with Ajax, Fetch API, Promises & Async / Await', 'javascript.png', 0, 'Ravi Teja'),
-(9, 'Java Programming for complete Beginners', 'What you\'ll learn\r\nLearn the core Java skills needed to apply for Java developer positions in just 14 hours.\r\nBe able to sit for and pass the Oracle Java Certificate exam if you choose.\r\nBe able to demonstrate your understanding of Java to future employers.', 'java.png', 0, 'Moulika '),
-(10, 'Learn Python Programming Master Class', 'What you\'ll learn\r\nHave a fundamental understanding of the Python programming language.\r\nHave the skills and understanding of Python to confidently apply for Python programming jobs.\r\nAcquire the pre-requisite Python skills to move into specific branches - Machine Learning, Data Science, etc..', 'python.png', 0, 'mcqocnicbk, nioan kll.');
+INSERT INTO `tbl_category` (`cat_Id`, `name`, `description`, `image`, `rating`, `side_heading`, `course_name`) VALUES
+(5, 'Web Design for Beginners : Learn HTML5 Programming', 'What you\'ll learn\r\nBy the end of the course you will be able to create full fledged HTML5 websites\r\nYou will be able to use features like Drag and Drop, Geo location and Web Storage to create immersible user experience.\r\nYou will have through understanding of both HTML and CSS', 'html5.png', 0, 'Vishnu', 'html5'),
+(6, 'Web Design for Beginners : Learn CSS3', 'What you\'ll learn\r\nReal-world skills to build real-world websites: professional, beautiful and truly responsive websites\r\nA huge project that will teach you everything you need to know to get started with HTML5 and CSS3\r\nThe proven 7 real-world steps from complete scratch to a fully functional and optimized website', 'css.png', 0, 'Praneeth, Vishnu', 'css3'),
+(7, 'Build a Responsive Real world website with Bootstrap4', 'Step by Step learn Bootstrap 4 with tutorial and by creating 10 interesting projects.\r\nCreate 10 amazing projects using Bootstrap 4\r\nLearn bootstrap classes and grid system.\r\nLearn CSS3 tricks and techniques.', 'bootstrap.png', 0, 'Praneeth', 'bootstrap'),
+(8, 'Modern Java Script for Beginners', 'What you\'ll learn\r\nModular learning sections & 10 real world projects with pure JavaScript\r\nMaster the DOM (document object model) WITHOUT jQuery\r\nAsynchronous programming with Ajax, Fetch API, Promises & Async / Await', 'javascript.png', 0, 'Ravi Teja', 'js'),
+(9, 'Java Programming for complete Beginners', 'What you\'ll learn\r\nLearn the core Java skills needed to apply for Java developer positions in just 14 hours.\r\nBe able to sit for and pass the Oracle Java Certificate exam if you choose.\r\nBe able to demonstrate your understanding of Java to future employers.', 'java.png', 0, 'Moulika ', 'java'),
+(10, 'Learn Python Programming Master Class', 'What you\'ll learn\r\nHave a fundamental understanding of the Python programming language.\r\nHave the skills and understanding of Python to confidently apply for Python programming jobs.\r\nAcquire the pre-requisite Python skills to move into specific branches - Machine Learning, Data Science, etc..', 'python.png', 0, 'mcqocnicbk, nioan kll.', 'python');
 
 -- --------------------------------------------------------
 
@@ -236,6 +237,33 @@ INSERT INTO `tbl_course` (`id`, `name`, `Type`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `tbl_payment`
+--
+
+DROP TABLE IF EXISTS `tbl_payment`;
+CREATE TABLE IF NOT EXISTS `tbl_payment` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `student_id` int(11) NOT NULL,
+  `course_id` int(11) NOT NULL,
+  `payment` varchar(1) NOT NULL DEFAULT 'N',
+  PRIMARY KEY (`id`),
+  KEY `student_id` (`student_id`),
+  KEY `course_id` (`course_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tbl_payment`
+--
+
+INSERT INTO `tbl_payment` (`id`, `student_id`, `course_id`, `payment`) VALUES
+(1, 5, 5, 'Y'),
+(2, 5, 7, 'Y'),
+(3, 5, 8, 'N'),
+(4, 5, 6, 'N');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `tbl_quiz`
 --
 
@@ -352,7 +380,7 @@ CREATE TABLE IF NOT EXISTS `tbl_user` (
   `username` varchar(255) DEFAULT NULL,
   `password` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`user_Id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tbl_user`
@@ -361,8 +389,8 @@ CREATE TABLE IF NOT EXISTS `tbl_user` (
 INSERT INTO `tbl_user` (`user_Id`, `fname`, `mname`, `lname`, `dob`, `gender`, `username`, `password`) VALUES
 (1, 'samples', 'sample', 'sample', '2015-05-20', 'Male', 'sample', '5e8ff9bf55ba3508199d22e984129be6'),
 (2, 'test', 'test', 'test', '2015-05-08', 'Female', 'test', '098f6bcd4621d373cade4e832627b4f6'),
-(3, 'aaa', 'aaa', 'aaa', '2015-05-07', 'Male', 'aaa', '47bce5c74f589f4867dbd57e9ca9f808'),
-(4, 'lorem', 'lorem', 'lorem', '2015-04-30', 'Male', 'lorem', 'd2e16e6ef52a45b7468f1da56bba1953');
+(4, 'lorem', 'lorem', 'lorem', '2015-04-30', 'Male', 'lorem', 'd2e16e6ef52a45b7468f1da56bba1953'),
+(5, 'vishnu', 'vardhan', 'chnthalapudi', '1998-06-24', 'Male', 'u101116fcs026', '827ccb0eea8a706c4c34a16891f84e7b');
 
 --
 -- Constraints for dumped tables
@@ -373,6 +401,13 @@ INSERT INTO `tbl_user` (`user_Id`, `fname`, `mname`, `lname`, `dob`, `gender`, `
 --
 ALTER TABLE `tbl_course`
   ADD CONSTRAINT `tbl_course_ibfk_1` FOREIGN KEY (`id`) REFERENCES `tbl_category` (`cat_Id`);
+
+--
+-- Constraints for table `tbl_payment`
+--
+ALTER TABLE `tbl_payment`
+  ADD CONSTRAINT `tbl_payment_ibfk_1` FOREIGN KEY (`student_id`) REFERENCES `tbl_user` (`user_Id`),
+  ADD CONSTRAINT `tbl_payment_ibfk_2` FOREIGN KEY (`course_id`) REFERENCES `tbl_category` (`cat_Id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

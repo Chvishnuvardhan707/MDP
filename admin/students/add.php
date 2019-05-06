@@ -59,15 +59,6 @@ $adm_user=$_SESSION['adm_user'];
                        <li >
                             <a href="../home.php"><i class="icon-chevron-right"></i> Dashboard</a>
                         </li>
-                        
-                        <li>
-                        <?php
-                                    include '../../functions/connect.php';
-
-                                    $result=$pdo->query("SELECT count(*) as total from tbl_teacher")->fetchColumn();
-                                    ?>
-                            <a href="../teacher/index.php"><span class="badge badge-success pull-right"><?php echo $result;?></span> Teachers</a>
-                        </li>
                         <li class="active">
                         <?php
                                     include '../../functions/connect.php';
@@ -168,10 +159,32 @@ $adm_user=$_SESSION['adm_user'];
                    
                 </div>
             </div>
-            <hr>
-            <footer>
-                <p>&copy; 2019</p>
-            </footer>
+        <br>
+         <footer class="footer2" style="background-color: black">
+        <div class="container-fluid">
+            <div class="row" >
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 text-center">
+                    <div class="footer-contacts">
+                        <div class="footer-contact text-white">
+                            <i class="fa fa-phone-square fa-lg"></i> +91 838 409 0651
+                        </div>
+                        <div class="footer-contact text-center text-white"> 
+                            <span> <i class="fa fa-envelope-square fa-lg"></i> niituniversity.in</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 text-center">
+                    <p class="text-white text-center">© 2019 Copyright: NIIT UNIVERSITY<br>
+                        <a class="text-center text-white" href="#top">Go To Top <span><i class="fas fa-arrow-square-up fa-lg"></i></span></a>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 text-center">
+                    <div class="text-white">Get in touch with me at: <br>
+                        <a href="#"> <span  style="color: white"><i aria-hidden="true" class="fab fa-github-square fa-2x"></i></span></a>   <a href="#">  <span style="color: white"><i class="fab fa-linkedin fa-2x"></i></i></span></a>  <a href="#"><span style="color: white"><i class="fab fa-facebook-square fa-2x"></i></span></a>
+                </div>
+            </div>
+        </div>
+     </div>
+ </footer>
         </div>
          <script src="../../vendors/jquery-1.9.1.js"></script>
         <script src="../../bootstrap/js/bootstrap.min.js"></script>

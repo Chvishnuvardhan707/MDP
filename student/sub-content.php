@@ -13,7 +13,7 @@ if($_POST){
   $content = $_POST['commentContent'];
   $handle = fopen("comments.html","a");
    date_default_timezone_set("Asia/Taipei");
-        $datetime=date("Y-m-d h:i:sa");
+        $datetime=date("Y-m-d");
   fwrite($handle, "<b>"."<p class='well'>".$name."</b>:<br/>".$content."<label class='pull-right'>$datetime</label>"."</p>"."<br/>");
   fclose($handle);
 }
@@ -22,10 +22,8 @@ if($_POST){
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="description" content="free-educational-responsive-web-template-webEdu">
-	<meta name="author" content="webThemez.com">
-	<title>ACS E-Learning</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">>
+  <title> NU Learning Management System</title>
 	 <link rel="icon" type="image/png"  href="../images/favicon.png">
 	<link rel="stylesheet" media="screen" href="../http://fonts.googleapis.com/css?family=Open+Sans:300,400,700">
 	<link rel="stylesheet" href="../css/bootstrap.min.css">
@@ -33,13 +31,8 @@ if($_POST){
 	<link rel="stylesheet" href="../css/bootstrap-theme.css" media="screen"> 
 	<link rel="stylesheet" href="../css/style.css">
     <link rel='stylesheet' id='camera-css'  href='../css/camera.css' type='text/css' media='all'> 
-	<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-	<!--[if lt IE 9]>
-	<script src="../js/html5shiv.js"></script>
-	<script src="../js/respond.min.js"></script>
-	<![endif]-->
+
  <script>
-//This script is to disable copy and paste.
   function disableCopy(e){
     return false
   }
@@ -57,11 +50,9 @@ if($_POST){
 </script>
 </head>
 <body ondragstart="return false" onselectstart="return false" oncontextmenu="return false">
-	<!-- Fixed navbar -->
 	<div class="navbar navbar-inverse">
 		<div class="container">
 			<div class="navbar-header">
-				<!-- Button for smallest screens -->
 				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
 				<a class="navbar-brand" href="home.php">
 					<img src="../images/logo.png" alt="Techro HTML5 template"></a>
@@ -81,16 +72,11 @@ if($_POST){
 
 				</ul>
 			</div>
-			<!--/.nav-collapse -->
 		</div>
 	</div>
-	<!-- /.navbar -->
-	<!-- /.navbar -->
-
 	<header id="head" class="secondary">
             <div class="container">
                     <h1>Topics</h1>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing eliras scele!</p>
                 </div>
     </header>
 
@@ -109,16 +95,11 @@ if($_POST){
 					 			
 			<?php
         require_once "../functions/connect.php";
-       
-
-        $sql = mysql_query("SELECT * FROM `tbl_subtopic`  WHERE `sub_Id`=".$_GET["sub_Id"]);
-        if(mysql_num_rows($sql)==0)
-        {
-        echo "<p class='alert alert-danger'>"."No Post have been found"."</p>";
-        }
-        else                            
-        {
-        while($row=mysql_fetch_array($sql)){   
+        $xxx = $_GET["sub_Id"];
+        $sql = $pdo->prepare("SELECT * FROM `tbl_subtopic`  WHERE `sub_Id`='$xxx'");
+        $sql->execute();
+        $res = $sql->fetchall();;
+        foreach($res as $row){   
         $id = $row['sub_Id'];
         $title = $row['sub_title'];
         $topic = $row['topic_Id'];
@@ -137,7 +118,7 @@ if($_POST){
 
   <?php
 }
-}
+
   ?>
 
        	 				</div>
@@ -148,22 +129,7 @@ if($_POST){
 			</div>
 	<div class="container">
 		 <div id="comments">
-      <?php include "comments.html";?>
-
-              <?php 
-     /*         $postid= $_GET['sub_Id'];
-              $sql = mysql_query("SELECT * from tbl_comment as c join tbl_user as u on c.user_Id=u.user_Id where sub_Id='$postid' order by datetime");
-             
-              while($row=mysql_fetch_assoc($sql)){
-                    echo "<label>Comment by: </label> ".$row['fname']." ".$row['lname']."<br>";
-                     echo '<label class="pull-right">'.$row['datetime'].'</label>';
-                     echo "<p class='well'>".$row['comment']."</p>";
-              }
-
-      */
-
-              ?>
-             
+      <?php include "comments.html";?>             
             </div>
             <div class="container">
 
@@ -181,40 +147,8 @@ if($_POST){
         </fieldset>
      </form>
       </div>
-  
-     
-
-
 	</div>
-  <!--
-	<script>
 
-$("#save").click(function(){
-var postid = $("#postid").val();
-var userid = $("#userid").val();
-var comment = $("#commenttxt").val();
-var datastring = 'postid=' + postid + '&userid=' + userid + '&comment=' + comment;
-if(!comment){
-  alert("Please enter some text comment");
-}
-else{
-  $.ajax({
-    type:"POST",
-    url: "addcomment.php",
-    data: datastring,
-    cache: false,
-    success: function(result){
-      document.getElementById("commenttxt").value=' ';
-      $("#comments").append(result);
-    }
-  });
-}
-return false;
-})
-
-</script>
-
-	<!-- JavaScript libs are placed at the end of the document so the pages load faster -->
 	<script src="../js/modernizr-latest.js"></script> 
 	<script type='text/javascript' src='../js/jquery.min.js'></script>
     <script type='text/javascript' src='../js/fancybox/jquery.fancybox.pack.js'></script>

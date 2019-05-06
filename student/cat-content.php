@@ -12,10 +12,8 @@ $username=$_SESSION['username'];
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="description" content="free-educational-responsive-web-template-webEdu">
-	<meta name="author" content="webThemez.com">
-	<title>ACS E-Learning</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">>
+  <title> NU Learning Management System</title>
 	 <link rel="icon" type="image/png"  href="../images/favicon.png">
 	<link rel="stylesheet" media="screen" href="../http://fonts.googleapis.com/css?family=Open+Sans:300,400,700">
 	<link rel="stylesheet" href="../css/bootstrap.min.css">
@@ -31,7 +29,7 @@ $username=$_SESSION['username'];
 			<div class="navbar-header">
 				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
 				<a class="navbar-brand" href="home.php">
-					<img src="../images/logo.png" alt="Techro HTML5 template"></a>
+					<img src="../images/brand.png" alt="Techro HTML5 template"></a>
 			</div>
 			<div class="navbar-collapse collapse">
 				<ul class="nav navbar-nav pull-right mainNav">
@@ -53,7 +51,6 @@ $username=$_SESSION['username'];
 	<header id="head" class="secondary">
             <div class="container">
                     <h1>Topics</h1>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing eliras scele!</p>
                 </div>
     </header>
 
@@ -74,15 +71,11 @@ $username=$_SESSION['username'];
 			 <?php
         require_once "../functions/connect.php";
        
-
-        $sql = mysql_query("SELECT * FROM `tbl_topic`  WHERE `cat_Id`=".$_GET["cat_Id"]);
-        if(mysql_num_rows($sql)==0)
-        {
-        echo "<p class='alert alert-danger'>"."No Post have been found"."</p>";
-        }
-        else                            
-        {
-        while($row=mysql_fetch_array($sql)){   
+        $via = $_GET["cat_Id"];
+        $sql = $pdo->prepare("select * FROM tbl_topic where cat_Id='$via'");
+        $sql->execute();
+        $result= $sql->fetchall();
+        foreach($result as $row){   
         $id = $row['topic_Id'];
         $title = $row['title'];
         $category = $row['cat_Id'];
@@ -98,13 +91,10 @@ $username=$_SESSION['username'];
 			</div>
   <?php
 }
-}
+
   ?>
 		</section>
 	</div>
-  
-		
-	<!-- JavaScript libs are placed at the end of the document so the pages load faster -->
 	<script src="../js/modernizr-latest.js"></script> 
 	<script type='text/javascript' src='../js/jquery.min.js'></script>
     <script type='text/javascript' src='../js/fancybox/jquery.fancybox.pack.js'></script>

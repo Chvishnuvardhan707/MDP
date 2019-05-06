@@ -1,11 +1,7 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
 
-<head>
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-	
+<head>	
 	<title>PHP Quiz</title>
-	
 	   <link rel="stylesheet" href="../../css/global.css">
         <link rel="icon" type="image/png"  href="../../images/favicon.png">
 </head>
@@ -14,7 +10,7 @@
 
 	<div id="page-wrap">
 
-		<h1>Final Quiz for Lip building</h1>
+		<h1>Final Quiz for HTML5</h1>
 		
 		<form action="grade.php" method="post" id="quiz">
 		
@@ -48,7 +44,7 @@
                 
                 <li>
                 
-                    <h3>Internet Explorer 6 was released in...</h3>
+                    <h3>Internet Explorer 9 was released in...</h3>
                     
                     <div>
                         <input type="radio" name="question-2-answers" id="question-2-answers-A" value="A" />

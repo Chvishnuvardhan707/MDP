@@ -36,7 +36,7 @@ $username=$_SESSION['username'];
   
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-light fixed-top bg-dark">
+<nav class="navbar navbar-expand-lg navbar-light fixed-top bg-light">
       <a class="navbar-brand" href="../index.php">
           <img src="../images/brand.png" width="250px"  alt="NIIT University" style="padding-top: 0px"></a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" style="background-color: #FF69B4;">
@@ -46,9 +46,9 @@ $username=$_SESSION['username'];
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto"></ul>
         <ul class="nav navbar-nav navbar-right">
-          <li><a class="nav-item active text-light" href="home.php">HOME</a></li>
+          <li style="margin-top: 10px;"><a class="nav-item active text-dark" href="home.php">HOME</a></li>
           <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><?php echo $username;?>
+        <a class="nav-link dropdown-toggle text-dark" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><?php echo $username;?>
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           <a class="dropdown-item" href="user-details.php">Profile</a>
@@ -180,31 +180,6 @@ $username=$_SESSION['username'];
        </div>
      </div>
      <div class="clear"></div>
-     <footer class="footer2">
-      <div class="container-fluid">
-        <div class="row" >
-          <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 text-center">
-            <div class="footer-contacts">
-              <div class="footer-contact text-white">
-                <i class="fa fa-phone-square fa-lg"></i> +91 838 409 0651
-              </div>
-              <div class="footer-contact text-center text-white"> 
-                <span> <i class="fa fa-envelope-square fa-lg"></i> chvishnuvardhan707@gmail.com</span>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 text-center">
-            <p class="text-white text-center">© 2019 Copyright: Vishnu Vardhan CH<br>
-              <a class="text-center text-white" href="#top">Go To Top <span><i class="fas fa-arrow-square-up fa-lg"></i></span></a>
-          </div>
-          <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 text-center">
-            <div class="text-white">Get in touch with me at: <br>
-              <a href="https://github.com/Chvishnuvardhan707"> <span  style="color: white"><i aria-hidden="true" class="fab fa-github-square fa-2x"></i></span></a>   <a href="https://www.linkedin.com/in/chinthalapudi-vishnuvardhan-7b2b29149/">  <span style="color: white"><i class="fab fa-linkedin fa-2x"></i></i></span></a>  <a href="https://www.facebook.com/profile.php?id=100010321689058"><span style="color: white"><i class="fab fa-facebook-square fa-2x"></i></span></a>
-          </div>
-        </div>
-      </div>
-     </div>
- </footer>
   <script src="../js/modernizr-latest.js"></script> 
   <script type='text/javascript' src='../js/jquery.min.js'></script>
     <script type='text/javascript' src='../js/fancybox/jquery.fancybox.pack.js'></script>
@@ -233,6 +208,30 @@ $username=$_SESSION['username'];
     });
       
   </script>
-    
+    <footer class="footer2">
+      <div class="container-fluid">
+        <div class="row" >
+          <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 text-center">
+            <div class="footer-contacts">
+              <div class="footer-contact text-white">
+                <i class="fa fa-phone-square fa-lg"></i> +91 838 409 0651
+              </div>
+              <div class="footer-contact text-center text-white"> 
+                <span> <i class="fa fa-envelope-square fa-lg"></i> niituniversity.in</span>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 text-center">
+            <p class="text-white text-center">© 2019 Copyright: NIIT UNIVERSITY<br>
+              <a class="text-center text-white" href="#top">Go To Top <span><i class="fas fa-arrow-square-up fa-lg"></i></span></a>
+          </div>
+          <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 text-center">
+            <div class="text-white">Get in touch with me at: <br>
+              <a href="#"> <span  style="color: white"><i aria-hidden="true" class="fab fa-github-square fa-2x"></i></span></a>   <a href="#">  <span style="color: white"><i class="fab fa-linkedin fa-2x"></i></i></span></a>  <a href="#"><span style="color: white"><i class="fab fa-facebook-square fa-2x"></i></span></a>
+          </div>
+        </div>
+      </div>
+     </div>
+ </footer>
 </body>
 </html>

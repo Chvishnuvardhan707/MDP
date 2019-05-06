@@ -1,21 +1,11 @@
 <?php
 include "connect.php";
-
 extract($_POST);
-
-	$fname = str_replace("'","`",$fname); 
-	//$fname = mysql_real_escape_string($fname);
-	
-	$lname = str_replace("'","`",$lname); 
-	//$lname = mysql_real_escape_string($lname); 
-	        
+	$fname = str_replace("'","`",$fname); 	
+	$lname = str_replace("'","`",$lname); 	        
 	$username = str_replace("'","`",$username); 
-	//$username = mysql_real_escape_string($username); 
-
 	$password = str_replace("'","`",$password); 
-	//$password = mysql_real_escape_string($password);
 	$password = md5($password);
-
 $sql = $pdo->prepare("insert INTO `tbl_user`(`fname`, `mname`, `lname`, `dob`, `gender`, `username`, `password`) VALUES  ('$fname','$mname','$lname','$dob','$gender','$username','$password')");
 $sql->execute();
  echo '<script language="javascript">';

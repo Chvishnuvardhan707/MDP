@@ -23,11 +23,11 @@
   color: white;
 }
    </style>
-}
+
   
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-light fixed-top bg-dark">
+<nav class="navbar navbar-expand-lg navbar-light fixed-top bg-light">
       <a class="navbar-brand" href="../index.php">
           <img src="../images/brand.png" width="250px"  alt="NIIT University" style="padding-top: 0px"></a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" style="background-color: #FF69B4;">
@@ -36,19 +36,18 @@
 
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
-           <li><a class="nav-item active text-light" href="../index.php">HOME</a></li>
-           <li><a class="nav-item text-light" href="../pages/about.php">ABOUT</a></li>
-        <li><a class="nav-item text-light" href="../pages/courses.php">COURSES</a></li>
-        <li><a class="nav-item text-light" href="../pages/contact.php">CONTACT</a></li>
+           <li><a class="nav-item active text-dark" href="../index.php">HOME</a></li>
+           <li><a class="nav-item text-dark" href="../pages/about.php">ABOUT</a></li>
+        <li><a class="nav-item text-dark" href="../pages/courses.php">COURSES</a></li>
+        <li><a class="nav-item text-dark" href="../pages/contact.php">CONTACT</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
           <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <a class="nav-link dropdown-toggle text-dark" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           LOGIN
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           <a class="dropdown-item" href="../admin/index.php">Admin</a>
-          <a class="dropdown-item" href="../teacher/index.php">Teacher</a>
           <a class="dropdown-item" href="#">Student</a>
         </div>
       </li>

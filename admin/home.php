@@ -14,6 +14,7 @@ $adm_user=$_SESSION['adm_user'];
         <title>Admin Home Page</title>
        
         <link href="../vendors/easypiechart/jquery.easy-pie-chart.css" rel="stylesheet" media="screen">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
         <link href="../assets/styles.css" rel="stylesheet" media="screen">
         <script src="../vendors/modernizr-2.6.2-respond-1.1.0.min.js"></script>
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
@@ -26,7 +27,7 @@ $adm_user=$_SESSION['adm_user'];
     </head>
     
     <body>
-<nav class="navbar navbar-expand-lg navbar-light fixed-top bg-dark">
+<nav class="navbar navbar-expand-lg navbar-light fixed-top bg-light">
 		  <a class="navbar-brand" href="index.php">
 					<img src="../images/brand.png" width="250px"  alt="NIIT University" style="padding-top: 0px"></a>
 		  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" style="background-color: #FF69B4;">
@@ -35,39 +36,33 @@ $adm_user=$_SESSION['adm_user'];
 
 		  <div class="collapse navbar-collapse" id="navbarSupportedContent">
 		    <ul class="navbar-nav mr-auto">
-		       <li >
-                        <?php
-                                    include '../functions/connect.php';
-                                    $percent=$pdo->query("SELECT count(*) from tbl_teacher")->fetchColumn();   
-                                    ?>
-                            <a class="nav-item text-light" href="teacher/index.php"><span class="badge badge-success float-right"><?php echo $percent;?></span> Teachers</a>
-                        </li>
+
                         <li>
                         <?php
                                     include '../functions/connect.php';
                                     $percent=$pdo->query("SELECT count(*) from tbl_user")->fetchColumn();
                                     ?>
-                            <a class="nav-item text-light" href="students/index.php"><span class="badge badge-success float-right"><?php echo $percent;?></span> Students</a>
+                            <a class="nav-item text-dark" href="students/index.php"><span class="badge badge-success float-right"><?php echo $percent;?></span> Students</a>
                         </li>
                         <li>
                           <?php
                           include '../functions/connect.php';
                           $percent=$pdo->query("SELECT count(*) from tbl_category")->fetchColumn();
                           ?>
-                            <a class="nav-item text-light" href="category/index.php"><span class="badge badge-info float-right"><?php echo $percent;?></span> Categories</a>
+                            <a class="nav-item text-dark" href="category/index.php"><span class="badge badge-info float-right"><?php echo $percent;?></span> Categories</a>
                         </li>
                         <li>
                         <?php
                                     include '../functions/connect.php';
                                     $percent=$pdo->query("SELECT count(*) as total from tbl_contact")->fetchColumn();
                                     ?>
-                            <a class="nav-item text-light" href="message/index.php"><span class="badge badge-info float-right"><?php echo $percent;?></span> Messages</a>
+                            <a class="nav-item text-dark" href="message/index.php"><span class="badge badge-info float-right"><?php echo $percent;?></span> Messages</a>
                         </li>
 		       
 		    </ul>
 		    <ul class="nav navbar-nav navbar-right">
 		      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="icon-user"></i><?php echo $adm_user;?> <i class="caret"></i></a>
+        <a class="nav-link dropdown-toggle text-dark" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="icon-user"></i><?php echo $adm_user;?> <i class="caret"></i></a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           <a class="dropdown-item" href="account/index.php">Profile</a>
           <a class="dropdown-item" href="logout.php">Logout</a>
@@ -83,18 +78,7 @@ $adm_user=$_SESSION['adm_user'];
 						<div class="card-header text-center">Statistics</div>
 						<div class="card-body">
 							<div class="row">
-                             <?php
-                                    include '../functions/connect.php';
-
-                                    $percent=$pdo->query("SELECT count(*) as total from tbl_teacher")->fetchColumn();
-                                    ?>
-                                <div class="col col-lg-3 col-md-3 col-sm-6">
-                                    <div class="chart" data-percent="73"><?php echo $percent;?></div>
-                                    <div class="chart-bottom-heading"><span class="label label-info">Teachers</span>
-
-                                    </div>
-                                </div>
-                                <div class="col col-lg-3 col-md-3 col-sm-6">
+                              <div class="col col-lg-4 col-md-4 col-sm-4">
                                  <?php
                                     include '../functions/connect.php';
 
@@ -105,7 +89,7 @@ $adm_user=$_SESSION['adm_user'];
 
                                     </div>
                                 </div>
-                                <div class="col col-lg-3 col-md-3 col-sm-6">
+                                <div class="col col-lg-4 col-md-4 col-sm-4">
                                  <?php
                                     include '../functions/connect.php';
 
@@ -116,7 +100,7 @@ $adm_user=$_SESSION['adm_user'];
 
                                     </div>
                                 </div>
-                                <div class="col col-lg-3 col-md-3 col-sm-6">
+                                <div class="col col-lg-4 col-md-4 col-sm-4">
                                  <?php
                                     include '../functions/connect.php';
 
@@ -194,69 +178,6 @@ $adm_user=$_SESSION['adm_user'];
                                     </tbody>
                                     </table>
                                 </div>
-						</div>
-						<div class="card-footer"></div>
-					</div><br>
-					<div class="card">
-						<div class="card-header text-center">
-							<?php
-                                    include '../functions/connect.php';
-
-                                    $sql=$pdo->query("SELECT count(*) as total from tbl_teacher")->fetchColumn();
-                                   ?>
-                                    <div class="muted">Teachers<span class="badge badge-info"> <?php echo $sql;?></span>
-
-                                    </div>
-						</div>
-						<div class="card-body">
-							<table class="table table-striped">
-                                        <thead>
-                                        <tr>
-                                           
-                                            <th>Name</th>
-                                            <th>Username</th>
-                                            <th>Action</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        
-                                        <?php
-                                        
-                                        include "../functions/connect.php";
-                                      
-                                        $sql = $pdo->prepare("SELECT * FROM `tbl_teacher` ");
-                                        $sql->execute();
-                                        $result = $sql->fetchall();
-
-                                        foreach($result as $row){
-                                            $id = $row['teacher_Id'];
-                                            echo '<tr class="odd gradeX" id="rec">';?>
-                                           <?php
-                                            echo "<td>".$row['fname']."</td>";
-                                            echo "<td>".$row['uname']."</td>";
-                                             echo "<td>".
-                                            '<div class="btn-group">
-                                            <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="500" data-close-others="false">
-                                                Action
-                                            <span class="caret"></span>
-                                            </button>
-                                            <ul class="dropdown-menu pull-right" role="menu">
-                                            <li><a href="teacher/index.php"><span class="glyphicon glyphicon-edit"></span> View</a></li>
-                                            </ul>
-                                            </div>'
-                                                    ."</td>";
-        
-                                            echo "</tr>";
-                                 
-                                     
-                                        }
-                                    
-
-                                        ?>
-                                   
-                                        
-                                    </tbody>
-                                    </table>
 						</div>
 						<div class="card-footer"></div>
 					</div><br>
@@ -381,15 +302,39 @@ $adm_user=$_SESSION['adm_user'];
                                     </tbody>
                                     </table>
 						</div>
-						<div class="card-footer"></div>
 					</div>
 				</div>
 			</div>
+
 		</div>
-
-
-            <hr>
+        <br>
+         <footer class="footer2" style="background-color: black">
+        <div class="container-fluid">
+            <div class="row" >
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 text-center">
+                    <div class="footer-contacts">
+                        <div class="footer-contact text-white">
+                            <i class="fa fa-phone-square fa-lg"></i> +91 838 409 0651
+                        </div>
+                        <div class="footer-contact text-center text-white"> 
+                            <span> <i class="fa fa-envelope-square fa-lg"></i> niituniversity.in</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 text-center">
+                    <p class="text-white text-center">© 2019 Copyright: NIIT UNIVERSITY<br>
+                        <a class="text-center text-white" href="#top">Go To Top <span><i class="fas fa-arrow-square-up fa-lg"></i></span></a>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 text-center">
+                    <div class="text-white">Get in touch with me at: <br>
+                        <a href="#"> <span  style="color: white"><i aria-hidden="true" class="fab fa-github-square fa-2x"></i></span></a>   <a href="#">  <span style="color: white"><i class="fab fa-linkedin fa-2x"></i></i></span></a>  <a href="#"><span style="color: white"><i class="fab fa-facebook-square fa-2x"></i></span></a>
+                </div>
+            </div>
         </div>
+     </div>
+ </footer>
+
+
         <script src="../vendors/jquery-1.9.1.min.js"></script>
         <script src="../bootstrap/js/bootstrap.min.js"></script>
         <script src="../vendors/easypiechart/jquery.easy-pie-chart.js"></script>
@@ -399,6 +344,7 @@ $adm_user=$_SESSION['adm_user'];
             $('.chart').easyPieChart({animate: 1000});
         });
         </script>
+             
     </body>
 
 </html>

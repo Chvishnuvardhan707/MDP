@@ -1,3 +1,4 @@
+<?php error_reporting(E_ERROR | E_PARSE);?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 
@@ -14,7 +15,7 @@
 
 	<div id="page-wrap">
 
-		<h1>Final Quiz for Lip building</h1>
+		<h1 class="text-center" style="padding-left: 35%;padding-right: 35%;">Quiz Results</h1>
 		
         <?php
             
@@ -32,7 +33,7 @@
             if ($answer4 == "D") { $totalCorrect++; }
             if ($answer5) { $totalCorrect++; }
             
-            echo "<div id='results'>$totalCorrect / 5 correct</div>";
+            echo "<div id='results' style='padding-left: 35%;padding-right: 35%;'>$totalCorrect / 5 correct</div>";
             
         ?>
 	
